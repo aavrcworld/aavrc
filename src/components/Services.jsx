@@ -1,14 +1,14 @@
 import React from "react";
-import webAppImg from "../media/5.jpg";
-import websiteImg from "../media/5.jpg";
-import softwareImg from "../media/5.jpg";
-import employeeImg from "../media/5.jpg";
-import flipbookImg from "../media/5.jpg";
-import ecommerceImg from "../media/5.jpg";
-import customAppImg from "../media/5.jpg";
-import solutionsImg from "../media/5.jpg";
-import awsImg from "../media/5.jpg";
-import hostingImg from "../media/5.jpg";
+import webAppImg from "../media/services/webapp.jpg";
+import websiteImg from "../media/services/web.jpg";
+import softwareImg from "../media/services/soft.jpg";
+import employeeImg from "../media/services/employee.jpg";
+import flipbookImg from "../media/services/flipbook.jpg";
+import ecommerceImg from "../media/services/ecom.jpg";
+import customAppImg from "../media/services/customapp.jpg";
+import solutionsImg from "../media/services/solution.jpg";
+import awsImg from "../media/services/aws.jpg";
+import hostingImg from "../media/services/hosting.jpg";
 
 function Services() {
   const services = [

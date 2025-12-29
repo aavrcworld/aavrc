@@ -1,10 +1,10 @@
 import React from "react";
-import projectImg1 from "../media/5.jpg";
-import projectImg2 from "../media/5.jpg";
-import projectImg3 from "../media/5.jpg";
-import projectImg4 from "../media/5.jpg";
-import projectImg5 from "../media/5.jpg";
-import projectImg6 from "../media/5.jpg";
+import projectImg1 from "../media/projects/emp.jpg";
+import projectImg2 from "../media/projects/ecommerce.jpg";
+import projectImg3 from "../media/projects/flip.jpg";
+import projectImg4 from "../media/projects/app.jpg";
+import projectImg5 from "../media/projects/website.jpg";
+import projectImg6 from "../media/projects/cloud.jpg";
 
 function Project() {
   const projects = [

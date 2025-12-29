@@ -1,7 +1,7 @@
 import React from "react";
-import aboutImg1 from "../media/3.jpg";
-import aboutImg2 from "../media/4.jpg"; 
-import aboutImg3 from "../media/6.jpg"; 
+import aboutImg1 from "../media/other/about1.jpg";
+import aboutImg2 from "../media/other/about2.jpg"; 
+import aboutImg3 from "../media/other/about3.jpg"; 
 
 function About() {
   return (

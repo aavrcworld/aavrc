@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import hero from "../media/7.jpg";
+import hero from "../media/other/hero.jpg";
 
 function Home() {
   const [typedText, setTypedText] = useState('');
