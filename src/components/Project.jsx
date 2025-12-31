@@ -106,7 +106,7 @@ function Project() {
           <p style={styles.ctaText}>
             Let's bring your vision to life with our expertise
           </p>
-          <a href="#contact" style={styles.ctaButton} className="cta-button">
+          <a href="#footer" style={styles.ctaButton} className="cta-button">
             Start Your Project
           </a>
         </div>

@@ -135,60 +135,310 @@ function Services() {
   ];
 
   return (
-    <section style={styles.servicesSection} id="services">
-      <div style={styles.container}>
-        {/* Header */}
-        <div style={styles.headerSection}>
-          <div style={styles.badge}>
-            <span style={styles.badgeText}>What We Offer</span>
-          </div>
-          <h2 style={styles.mainTitle}>OUR SERVICES</h2>
-          <div style={styles.divider}></div>
-          <p style={styles.subtitle}>Comprehensive Solutions for Your Digital Transformation</p>
-        </div>
+    <>
+      <style>{`
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
 
-        {/* Services Grid */}
-        <div style={styles.servicesGrid}>
-          {services.map((service, index) => (
-            <div key={index} style={styles.serviceCard} className="service-card">
-              {/* Image Section */}
-              <div style={styles.imageContainer} className="service-image-container">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  style={styles.serviceImage}
-                  className="service-zoom-image"
-                />
-                <div style={styles.imageOverlay}></div>
-              </div>
-              
-              {/* Content Section */}
-              <div style={styles.cardContent}>
-                <h3 style={styles.serviceTitle}>{service.title}</h3>
-                <p style={styles.serviceDescription}>{service.description}</p>
-                <ul style={styles.featuresList}>
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} style={styles.featureItem}>
-                      <div style={styles.checkIcon}>✓</div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        html, body {
+          overflow-x: hidden;
+          width: 100%;
+          max-width: 100vw;
+        }
+
+        .service-card {
+          background: #ffffff;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+          transition: all 0.3s ease;
+          border: 1px solid #f0f0f0;
+        }
+
+        .service-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .service-image-container {
+          position: relative;
+          height: 220px;
+          overflow: hidden;
+        }
+
+        .service-zoom-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-zoom-image {
+          transform: scale(1.1);
+        }
+
+        .cta-button-link {
+          display: inline-block;
+          padding: 16px 40px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #00BCD4;
+          background: #ffffff;
+          border: none;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          text-decoration: none;
+        }
+
+        .cta-button-link:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Tablet */
+        @media (max-width: 992px) {
+          .services-section-main {
+            padding: 80px 15px !important;
+          }
+
+          .main-title-services {
+            font-size: 2.2rem !important;
+          }
+
+          .services-grid-main {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 25px !important;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+          .services-section-main {
+            padding: 70px 10px !important;
+          }
+
+          .main-title-services {
+            font-size: 2rem !important;
+          }
+
+          .subtitle-services {
+            font-size: 1rem !important;
+            padding: 0 10px;
+          }
+
+          .services-grid-main {
+            grid-template-columns: 1fr !important;
+            gap: 25px !important;
+            margin-bottom: 60px !important;
+          }
+
+          .card-content-services {
+            padding: 25px !important;
+          }
+
+          .service-title-main {
+            font-size: 1.3rem !important;
+          }
+
+          .service-description-main {
+            font-size: 0.9rem !important;
+          }
+
+          .cta-section-main {
+            padding: 50px 25px !important;
+            border-radius: 20px !important;
+          }
+
+          .cta-title-main {
+            font-size: 1.6rem !important;
+          }
+
+          .cta-text-main {
+            font-size: 1rem !important;
+          }
+
+          .service-image-container {
+            height: 200px;
+          }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+          .services-section-main {
+            padding: 50px 5px !important;
+          }
+
+          .main-title-services {
+            font-size: 1.6rem !important;
+          }
+
+          .subtitle-services {
+            font-size: 0.9rem !important;
+            padding: 0 5px;
+          }
+
+          .services-grid-main {
+            gap: 18px !important;
+            margin-bottom: 40px !important;
+          }
+
+          .service-image-container {
+            height: 180px;
+          }
+
+          .card-content-services {
+            padding: 18px !important;
+          }
+
+          .service-title-main {
+            font-size: 1.1rem !important;
+            margin-bottom: 10px !important;
+          }
+
+          .service-description-main {
+            font-size: 0.85rem !important;
+            margin-bottom: 15px !important;
+          }
+
+          .feature-item-services {
+            font-size: 0.82rem !important;
+            padding: 6px 0 !important;
+          }
+
+          .check-icon-services {
+            width: 18px !important;
+            height: 18px !important;
+            font-size: 0.65rem !important;
+          }
+
+          .cta-section-main {
+            padding: 35px 15px !important;
+            border-radius: 15px !important;
+          }
+
+          .cta-title-main {
+            font-size: 1.3rem !important;
+            margin-bottom: 12px !important;
+          }
+
+          .cta-text-main {
+            font-size: 0.9rem !important;
+            margin-bottom: 20px !important;
+          }
+
+          .cta-button-link {
+            padding: 13px 30px;
+            font-size: 0.9rem;
+            width: 100%;
+            max-width: 280px;
+          }
+        }
+
+        /* Extra Small */
+        @media (max-width: 375px) {
+          .services-section-main {
+            padding: 45px 3px !important;
+          }
+
+          .main-title-services {
+            font-size: 1.5rem !important;
+          }
+
+          .subtitle-services {
+            font-size: 0.85rem !important;
+          }
+
+          .service-image-container {
+            height: 160px;
+          }
+
+          .card-content-services {
+            padding: 15px !important;
+          }
+
+          .service-title-main {
+            font-size: 1rem !important;
+          }
+
+          .service-description-main {
+            font-size: 0.8rem !important;
+          }
+
+          .cta-title-main {
+            font-size: 1.2rem !important;
+          }
+
+          .cta-text-main {
+            font-size: 0.85rem !important;
+          }
+
+          .cta-button-link {
+            padding: 12px 25px;
+            font-size: 0.85rem;
+            max-width: 260px;
+          }
+        }
+      `}</style>
+
+      <section style={styles.servicesSection} id="services" className="services-section-main">
+        <div style={styles.container}>
+          {/* Header */}
+          <div style={styles.headerSection}>
+            <div style={styles.badge}>
+              <span style={styles.badgeText}>What We Offer</span>
             </div>
-          ))}
-        </div>
+            <h2 style={styles.mainTitle} className="main-title-services">OUR SERVICES</h2>
+            <div style={styles.divider}></div>
+            <p style={styles.subtitle} className="subtitle-services">Comprehensive Solutions for Your Digital Transformation</p>
+          </div>
 
-        {/* CTA Section */}
-        <div style={styles.ctaSection}>
-          <h3 style={styles.ctaTitle}>Ready to Transform Your Business?</h3>
-          <p style={styles.ctaText}>
-            Let's discuss how our services can help you achieve your goals
-          </p>
-          <a href="#contact" style={styles.ctaButton}>Get Started Today</a>
+          {/* Services Grid */}
+          <div style={styles.servicesGrid} className="services-grid-main">
+            {services.map((service, index) => (
+              <div key={index} className="service-card">
+                {/* Image Section */}
+                <div className="service-image-container">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="service-zoom-image"
+                  />
+                  <div style={styles.imageOverlay}></div>
+                </div>
+                
+                {/* Content Section */}
+                <div style={styles.cardContent} className="card-content-services">
+                  <h3 style={styles.serviceTitle} className="service-title-main">{service.title}</h3>
+                  <p style={styles.serviceDescription} className="service-description-main">{service.description}</p>
+                  <ul style={styles.featuresList}>
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} style={styles.featureItem} className="feature-item-services">
+                        <div style={styles.checkIcon} className="check-icon-services">✓</div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div style={styles.ctaSection} className="cta-section-main">
+            <h3 style={styles.ctaTitle} className="cta-title-main">Ready to Transform Your Business?</h3>
+            <p style={styles.ctaText} className="cta-text-main">
+              Let's discuss how our services can help you achieve your goals
+            </p>
+            <a href="#footer" className="cta-button-link">Get Started Today</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
@@ -196,10 +446,14 @@ const styles = {
   servicesSection: {
     padding: '100px 20px',
     background: '#ffffff',
+    width: '100%',
+    maxWidth: '100vw',
+    overflowX: 'hidden',
   },
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
+    width: '100%',
   },
   headerSection: {
     textAlign: 'center',
@@ -239,31 +493,14 @@ const styles = {
     fontWeight: '400',
     maxWidth: '600px',
     margin: '0 auto',
+    lineHeight: '1.6',
   },
   servicesGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
     gap: '30px',
     marginBottom: '80px',
-  },
-  serviceCard: {
-    background: '#ffffff',
-    borderRadius: '20px',
-    overflow: 'hidden',
-    boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
-    transition: 'all 0.3s ease',
-    border: '1px solid #f0f0f0',
-  },
-  imageContainer: {
-    position: 'relative',
-    height: '220px',
-    overflow: 'hidden',
-  },
-  serviceImage: {
     width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    transition: 'transform 0.5s ease',
   },
   imageOverlay: {
     position: 'absolute',
@@ -282,12 +519,14 @@ const styles = {
     fontWeight: '700',
     color: '#1a1a1a',
     marginBottom: '12px',
+    wordWrap: 'break-word',
   },
   serviceDescription: {
     fontSize: '0.95rem',
     lineHeight: '1.7',
     color: '#666',
     marginBottom: '20px',
+    wordWrap: 'break-word',
   },
   featuresList: {
     listStyle: 'none',
@@ -322,72 +561,22 @@ const styles = {
     background: 'linear-gradient(135deg, #00BCD4 0%, #0097A7 100%)',
     borderRadius: '25px',
     boxShadow: '0 20px 60px rgba(0,188,212,0.3)',
+    width: '100%',
   },
   ctaTitle: {
     fontSize: '2rem',
     fontWeight: '700',
     color: '#ffffff',
     marginBottom: '15px',
+    wordWrap: 'break-word',
   },
   ctaText: {
     fontSize: '1.1rem',
     color: '#ffffff',
     marginBottom: '30px',
     opacity: 0.95,
-  },
-  ctaButton: {
-    display: 'inline-block',
-    padding: '16px 40px',
-    fontSize: '1rem',
-    fontWeight: '600',
-    color: '#00BCD4',
-    background: '#ffffff',
-    border: 'none',
-    borderRadius: '50px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-    textDecoration: 'none',
+    wordWrap: 'break-word',
   },
 };
 
-// Add hover effects
-const styleSheet = document.createElement("style");
-styleSheet.textContent = `
-  .service-image-container:hover .service-zoom-image {
-    transform: scale(1.1);
-  }
-  
-  @media (hover: hover) {
-    [style*="ctaButton"]:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    [style*="servicesGrid"] {
-      grid-template-columns: 1fr !important;
-    }
-    
-    [style*="mainTitle"] {
-      font-size: 2rem !important;
-    }
-    
-    [style*="ctaSection"] {
-      padding: 40px 20px !important;
-    }
-    
-    [style*="ctaTitle"] {
-      font-size: 1.5rem !important;
-    }
-  }
-`;
-
-if (!document.getElementById('services-styles')) {
-  styleSheet.id = 'services-styles';
-  document.head.appendChild(styleSheet);
-}
-
 export default Services;
-
