@@ -108,7 +108,7 @@ function Footer() {
                 </ul>
               </div>
 
-              <div style={{...styles.serviceColumn, ...styles.serviceColumnMiddle}}>
+              <div style={styles.serviceColumn} className="service-column-middle">
                 <h4 style={styles.serviceColumnTitle}>WEB APPS</h4>
                 <ul style={styles.serviceList}>
                   <li style={styles.serviceItem} className="service-item">High-Performance Web Applications</li>
@@ -172,8 +172,6 @@ function Footer() {
                   </a>
                   <a
                     href="mailto:aavrcworld@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
                     style={styles.socialLink}
                     className="social-link social-email"
                   >
@@ -203,7 +201,7 @@ function Footer() {
                   <div style={styles.contactIconWrapper} className="contact-icon-wrapper">
                     <FaMapMarkerAlt style={styles.contactIcon} />
                   </div>
-                  <span>Agra, Uttar Pradesh, India</span>
+                  <span>India</span>
                 </div>
               </div>
 
@@ -222,16 +220,16 @@ function Footer() {
               © 2025 AAVRC.COM - We Build It. | All rights reserved.
             </p>
             <div style={styles.footerLinks}>
-              <button 
-                style={styles.linkButton} 
+              <button
+                style={styles.linkButton}
                 onClick={() => setShowPrivacy(true)}
                 className="footer-link-btn"
               >
                 Privacy Policy
               </button>
               <span style={styles.separator}>|</span>
-              <button 
-                style={styles.linkButton} 
+              <button
+                style={styles.linkButton}
                 onClick={() => setShowTerms(true)}
                 className="footer-link-btn"
               >
@@ -289,6 +287,171 @@ function Footer() {
           </div>
         </div>
       )}
+
+      <style>{`
+        /* Feature Card Hover */
+        .feature-card {
+          cursor: pointer;
+        }
+        
+        .feature-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 50px rgba(0, 188, 212, 0.15) !important;
+          border-color: rgba(0, 188, 212, 0.3) !important;
+        }
+        
+        .feature-card:hover .feature-icon-wrapper {
+          background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%) !important;
+          transform: scale(1.1) rotate(5deg);
+        }
+        
+        .feature-card:hover .feature-icon-wrapper svg {
+          color: #ffffff !important;
+        }
+
+        /* Social Links - Show Brand Colors */
+        .social-youtube {
+          background: #FF0000 !important;
+          color: #ffffff !important;
+          border: 2px solid #FF0000 !important;
+        }
+        
+        .social-facebook {
+          background: #1877F2 !important;
+          color: #ffffff !important;
+          border: 2px solid #1877F2 !important;
+        }
+        
+        .social-instagram {
+          background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+          color: #ffffff !important;
+          border: 2px solid #dc2743 !important;
+        }
+        
+        .social-email {
+          background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%) !important;
+          color: #ffffff !important;
+          border: 2px solid #00BCD4 !important;
+        }
+
+        /* Social Links Hover Effects */
+        .social-link {
+          cursor: pointer;
+        }
+        
+        .social-link:hover {
+          transform: translateY(-5px) scale(1.1);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+        }
+        
+        .social-youtube:hover {
+          box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4) !important;
+        }
+        
+        .social-facebook:hover {
+          box-shadow: 0 10px 25px rgba(24, 119, 242, 0.4) !important;
+        }
+        
+        .social-instagram:hover {
+          box-shadow: 0 10px 25px rgba(220, 39, 67, 0.4) !important;
+        }
+        
+        .social-email:hover {
+          box-shadow: 0 10px 25px rgba(0, 188, 212, 0.4) !important;
+        }
+
+        /* Contact Link Hover */
+        .contact-link {
+          cursor: pointer;
+        }
+        
+        .contact-link:hover {
+          background: #ffffff !important;
+          border-color: rgba(0, 188, 212, 0.3) !important;
+          box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
+          transform: translateX(10px);
+        }
+        
+        .contact-link:hover .contact-icon-wrapper {
+          transform: scale(1.1) rotate(10deg);
+          box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+        
+        .contact-link:hover span {
+          color: #00BCD4;
+        }
+
+        /* Service Item Hover */
+        .service-item {
+          cursor: pointer;
+        }
+        
+        .service-item:hover {
+          background: rgba(0, 188, 212, 0.08);
+          color: #00BCD4 !important;
+          transform: scale(1.02);
+        }
+
+        /* Support Box Hover */
+        .support-box {
+          cursor: pointer;
+        }
+        
+        .support-box:hover {
+          background: linear-gradient(135deg, rgba(0, 188, 212, 0.15) 0%, rgba(0, 188, 212, 0.08) 100%) !important;
+          border-color: rgba(0, 188, 212, 0.4) !important;
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
+        }
+
+        /* Footer Link Button Hover */
+        .footer-link-btn:hover {
+          color: #00BCD4 !important;
+          background: rgba(0, 188, 212, 0.1);
+        }
+
+        /* Scroll To Top Button Hover */
+        .scroll-top-btn:hover {
+          transform: translateY(-5px) scale(1.1);
+          box-shadow: 0 12px 35px rgba(0, 188, 212, 0.5) !important;
+        }
+
+        /* WhatsApp Float Hover */
+        .whatsapp-float:hover {
+          transform: scale(1.15) rotate(10deg);
+          filter: drop-shadow(0 8px 20px rgba(37, 211, 102, 0.6)) !important;
+        }
+
+        /* Popup Close Button Hover */
+        .popup-close-btn:hover {
+          background: #00BCD4 !important;
+          color: #ffffff !important;
+          transform: rotate(90deg);
+        }
+
+        /* Service Column Middle Border */
+        .service-column-middle {
+          border-left: 1px solid rgba(0, 188, 212, 0.3);
+          border-right: 1px solid rgba(0, 188, 212, 0.3);
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 992px) {
+          .service-column-middle {
+            border-left: none !important;
+            border-right: none !important;
+            border-top: 1px solid rgba(0, 188, 212, 0.3) !important;
+            border-bottom: 1px solid rgba(0, 188, 212, 0.3) !important;
+          }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .service-column-middle {
+            border: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 }
@@ -309,7 +472,7 @@ const styles = {
     marginBottom: '60px',
   },
   visionTitle: {
-    fontSize: '2.5rem',
+    fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
     fontWeight: '800',
     color: '#1a1a1a',
     letterSpacing: '1px',
@@ -323,7 +486,7 @@ const styles = {
     borderRadius: '2px',
   },
   visionSubtitle: {
-    fontSize: '1.5rem',
+    fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
     fontWeight: '400',
     color: '#555',
   },
@@ -359,13 +522,13 @@ const styles = {
     transition: 'all 0.3s ease',
   },
   featureTitle: {
-    fontSize: '1.3rem',
+    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
     fontWeight: '700',
     color: '#1a1a1a',
     marginBottom: '12px',
   },
   featureDesc: {
-    fontSize: '0.95rem',
+    fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
     color: '#666',
     lineHeight: '1.7',
   },
@@ -376,7 +539,7 @@ const styles = {
     borderBottom: '1px solid #f0f0f0',
   },
   servicesSectionTitle: {
-    fontSize: '2rem',
+    fontSize: 'clamp(1.5rem, 4vw, 2rem)',
     fontWeight: '700',
     color: '#1a1a1a',
     textAlign: 'center',
@@ -391,12 +554,8 @@ const styles = {
     padding: '25px 35px',
     textAlign: 'center',
   },
-  serviceColumnMiddle: {
-    borderLeft: '1px solid rgba(0, 188, 212, 0.3)',
-    borderRight: '1px solid rgba(0, 188, 212, 0.3)',
-  },
   serviceColumnTitle: {
-    fontSize: '1.4rem',
+    fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
     fontWeight: '700',
     color: '#00BCD4',
     marginBottom: '25px',
@@ -407,18 +566,17 @@ const styles = {
     margin: 0,
   },
   serviceItem: {
-    fontSize: '0.95rem',
+    fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
     color: '#666',
     marginBottom: '15px',
     lineHeight: '1.5',
     padding: '8px 15px',
     borderRadius: '8px',
     transition: 'all 0.3s ease',
-    cursor: 'default',
   },
   infoGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: '50px',
     marginBottom: '50px',
   },
@@ -427,13 +585,13 @@ const styles = {
     flexDirection: 'column',
   },
   logo: {
-    fontSize: '2.5rem',
+    fontSize: 'clamp(2rem, 5vw, 2.5rem)',
     fontWeight: '800',
     color: '#1a1a1a',
     marginBottom: '8px',
   },
   tagline: {
-    fontSize: '1rem',
+    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
     color: '#00BCD4',
     fontWeight: '600',
     marginBottom: '20px',
@@ -442,7 +600,7 @@ const styles = {
     display: 'inline-block',
   },
   description: {
-    fontSize: '0.95rem',
+    fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
     color: '#666',
     lineHeight: '1.8',
     marginBottom: '30px',
@@ -451,7 +609,7 @@ const styles = {
     marginTop: 'auto',
   },
   sectionTitle: {
-    fontSize: '1.1rem',
+    fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
     fontWeight: '700',
     color: '#1a1a1a',
     marginBottom: '20px',
@@ -465,15 +623,12 @@ const styles = {
     width: '50px',
     height: '50px',
     borderRadius: '50%',
-    background: '#f5f5f5',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '24px',
-    color: '#666',
     textDecoration: 'none',
     transition: 'all 0.3s ease',
-    border: '2px solid transparent',
   },
   contactList: {
     display: 'flex',
@@ -487,7 +642,7 @@ const styles = {
     gap: '15px',
     color: '#555',
     textDecoration: 'none',
-    fontSize: '0.95rem',
+    fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
     transition: 'all 0.3s ease',
     padding: '12px 15px',
     borderRadius: '12px',
@@ -517,13 +672,13 @@ const styles = {
     transition: 'all 0.3s ease',
   },
   supportTitle: {
-    fontSize: '1.1rem',
+    fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
     fontWeight: '700',
     color: '#1a1a1a',
     marginBottom: '10px',
   },
   supportText: {
-    fontSize: '0.9rem',
+    fontSize: 'clamp(0.85rem, 2vw, 0.9rem)',
     color: '#666',
     lineHeight: '1.7',
     margin: 0,
@@ -538,7 +693,7 @@ const styles = {
     gap: '20px',
   },
   copyright: {
-    fontSize: '0.9rem',
+    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
     color: '#888',
     margin: 0,
     fontWeight: '500',
@@ -547,12 +702,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '15px',
+    flexWrap: 'wrap',
   },
   linkButton: {
     background: 'none',
     border: 'none',
     color: '#666',
-    fontSize: '0.9rem',
+    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     padding: '5px 10px',
@@ -604,12 +760,13 @@ const styles = {
     alignItems: 'center',
     zIndex: 9999,
     backdropFilter: 'blur(5px)',
+    padding: '20px',
   },
   popupContent: {
     background: '#ffffff',
     width: '90%',
     maxWidth: '600px',
-    padding: '50px',
+    padding: 'clamp(30px, 5vw, 50px)',
     borderRadius: '25px',
     boxShadow: '0 30px 80px rgba(0, 0, 0, 0.3)',
     position: 'relative',
@@ -634,154 +791,20 @@ const styles = {
     borderRadius: '50%',
   },
   popupTitle: {
-    fontSize: '1.8rem',
+    fontSize: 'clamp(1.3rem, 4vw, 1.8rem)',
     fontWeight: '700',
     color: '#1a1a1a',
     marginBottom: '25px',
   },
   popupBody: {
-    fontSize: '1rem',
+    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
     lineHeight: '1.8',
   },
+
   popupText: {
     color: '#666',
     marginBottom: '20px',
   },
 };
-
-// Add hover effects via CSS
-const styleSheet = document.createElement("style");
-styleSheet.textContent = `
-  /* Feature Card Hover */
-  .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 188, 212, 0.15) !important;
-    border-color: rgba(0, 188, 212, 0.3) !important;
-  }
-  
-  .feature-card:hover .feature-icon-wrapper {
-    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%) !important;
-    transform: scale(1.1) rotate(5deg);
-  }
-  
-  .feature-card:hover .feature-icon-wrapper svg {
-    color: #ffffff !important;
-  }
-
-  /* Social Links Hover */
-  .social-link:hover {
-    transform: translateY(-5px) scale(1.15);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .social-youtube:hover {
-    background: #FF0000 !important;
-    color: #ffffff !important;
-    border-color: #FF0000 !important;
-  }
-  
-  .social-facebook:hover {
-    background: #1877F2 !important;
-    color: #ffffff !important;
-    border-color: #1877F2 !important;
-  }
-  
-  .social-instagram:hover {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
-    color: #ffffff !important;
-    border-color: #dc2743 !important;
-  }
-  
-  .social-email:hover {
-    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%) !important;
-    color: #ffffff !important;
-    border-color: #00BCD4 !important;
-  }
-
-  /* Contact Link Hover */
-  .contact-link:hover {
-    background: #ffffff !important;
-    border-color: rgba(0, 188, 212, 0.3) !important;
-    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
-    transform: translateX(10px);
-  }
-  
-  .contact-link:hover .contact-icon-wrapper {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
-  }
-  
-  .contact-link:hover span {
-    color: #00BCD4;
-  }
-
-  /* Service Item Hover */
-  .service-item:hover {
-    background: rgba(0, 188, 212, 0.08);
-    color: #00BCD4 !important;
-    transform: scale(1.02);
-  }
-
-  /* Support Box Hover */
-  .support-box:hover {
-    background: linear-gradient(135deg, rgba(0, 188, 212, 0.15) 0%, rgba(0, 188, 212, 0.08) 100%) !important;
-    border-color: rgba(0, 188, 212, 0.4) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
-  }
-
-  /* Footer Link Button Hover */
-  .footer-link-btn:hover {
-    color: #00BCD4 !important;
-    background: rgba(0, 188, 212, 0.1);
-  }
-
-  /* Scroll To Top Button Hover */
-  .scroll-top-btn:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 12px 35px rgba(0, 188, 212, 0.5) !important;
-  }
-
-  /* WhatsApp Float Hover */
-  .whatsapp-float:hover {
-    transform: scale(1.15) rotate(10deg);
-    filter: drop-shadow(0 8px 20px rgba(37, 211, 102, 0.5)) !important;
-  }
-
-  /* Popup Close Button Hover */
-  .popup-close-btn:hover {
-    background: #00BCD4 !important;
-    color: #ffffff !important;
-    transform: rotate(90deg);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    [style*="visionTitle"] {
-      font-size: 1.8rem !important;
-    }
-    
-    [style*="visionSubtitle"] {
-      font-size: 1.2rem !important;
-    }
-    
-    [style*="serviceColumnMiddle"] {
-      border-left: none !important;
-      border-right: none !important;
-      border-top: 1px solid rgba(0, 188, 212, 0.3) !important;
-      border-bottom: 1px solid rgba(0, 188, 212, 0.3) !important;
-    }
-    
-    [style*="footerBottom"] {
-      flex-direction: column !important;
-      text-align: center !important;
-    }
-  }
-`;
-
-if (!document.getElementById('footer-styles')) {
-  styleSheet.id = 'footer-styles';
-  document.head.appendChild(styleSheet);
-}
 
 export default Footer;
