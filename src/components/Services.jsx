@@ -139,8 +139,6 @@ function Services() {
       <style>{`
         * {
           box-sizing: border-box;
-          margin: 0;
-          padding: 0;
         }
 
         html, body {
@@ -149,12 +147,80 @@ function Services() {
           max-width: 100vw;
         }
 
+        .services-section {
+          padding: 100px 20px;
+          background: #ffffff;
+          width: 100%;
+          overflow-x: hidden;
+        }
+
+        .services-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .services-header {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+
+        .services-badge {
+          display: inline-block;
+          padding: 10px 20px;
+          background: linear-gradient(135deg, rgba(0, 188, 212, 0.15) 0%, rgba(0, 188, 212, 0.05) 100%);
+          border: 1px solid rgba(0, 188, 212, 0.3);
+          border-radius: 50px;
+          margin-bottom: 20px;
+        }
+
+        .services-badge-text {
+          color: #0097A7;
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        .services-main-title {
+          font-size: 2.5rem;
+          font-weight: 800;
+          color: #1a1a1a;
+          letter-spacing: 1px;
+          margin-bottom: 15px;
+          margin-top: 0;
+        }
+
+        .services-divider {
+          width: 80px;
+          height: 4px;
+          background: linear-gradient(90deg, #00BCD4, #0097A7);
+          margin: 0 auto 20px;
+          border-radius: 2px;
+        }
+
+        .services-subtitle {
+          font-size: 1.1rem;
+          color: #666;
+          font-weight: 400;
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 30px;
+          margin-bottom: 80px;
+          width: 100%;
+        }
+
         .service-card {
           background: #ffffff;
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-          transition: all 0.3s ease;
+          transition: all 0.4s ease;
           border: 1px solid #f0f0f0;
         }
 
@@ -169,18 +235,111 @@ function Services() {
           overflow: hidden;
         }
 
-        .service-zoom-image {
+        .service-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.5s ease;
         }
 
-        .service-card:hover .service-zoom-image {
+        .service-card:hover .service-image {
           transform: scale(1.1);
         }
 
-        .cta-button-link {
+        .service-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1) 100%);
+          pointer-events: none;
+        }
+
+        .service-content {
+          padding: 30px;
+        }
+
+        .service-title {
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 12px;
+          margin-top: 0;
+          word-wrap: break-word;
+          transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-title {
+          color: #00BCD4;
+        }
+
+        .service-description {
+          font-size: 0.95rem;
+          line-height: 1.7;
+          color: #666;
+          margin-bottom: 20px;
+          word-wrap: break-word;
+        }
+
+        .service-features {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .feature-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 0;
+          font-size: 0.9rem;
+          color: #555;
+          border-bottom: 1px solid #f5f5f5;
+        }
+
+        .feature-item:last-child {
+          border-bottom: none;
+        }
+
+        .check-icon {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          font-size: 0.7rem;
+          font-weight: 700;
+        }
+
+        .services-cta {
+          text-align: center;
+          padding: 60px 40px;
+          background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+          border-radius: 25px;
+          box-shadow: 0 20px 60px rgba(0,188,212,0.3);
+        }
+
+        .cta-title {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 15px;
+          margin-top: 0;
+        }
+
+        .cta-text {
+          font-size: 1.1rem;
+          color: #ffffff;
+          margin-bottom: 30px;
+          opacity: 0.95;
+        }
+
+        .cta-button {
           display: inline-block;
           padding: 16px 40px;
           font-size: 1rem;
@@ -195,189 +354,205 @@ function Services() {
           text-decoration: none;
         }
 
-        .cta-button-link:hover {
+        .cta-button:hover {
           transform: translateY(-3px);
           box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        /* Tablet */
+        /* Tablet Responsive */
         @media (max-width: 992px) {
-          .services-section-main {
-            padding: 80px 15px !important;
+          .services-section {
+            padding: 80px 15px;
           }
 
-          .main-title-services {
-            font-size: 2.2rem !important;
+          .services-main-title {
+            font-size: 2.2rem;
           }
 
-          .services-grid-main {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-            gap: 25px !important;
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
           }
         }
 
-        /* Mobile */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-          .services-section-main {
-            padding: 70px 10px !important;
+          .services-section {
+            padding: 70px 15px;
           }
 
-          .main-title-services {
-            font-size: 2rem !important;
+          .services-main-title {
+            font-size: 2rem;
           }
 
-          .subtitle-services {
-            font-size: 1rem !important;
+          .services-subtitle {
+            font-size: 1rem;
             padding: 0 10px;
           }
 
-          .services-grid-main {
-            grid-template-columns: 1fr !important;
-            gap: 25px !important;
-            margin-bottom: 60px !important;
-          }
-
-          .card-content-services {
-            padding: 25px !important;
-          }
-
-          .service-title-main {
-            font-size: 1.3rem !important;
-          }
-
-          .service-description-main {
-            font-size: 0.9rem !important;
-          }
-
-          .cta-section-main {
-            padding: 50px 25px !important;
-            border-radius: 20px !important;
-          }
-
-          .cta-title-main {
-            font-size: 1.6rem !important;
-          }
-
-          .cta-text-main {
-            font-size: 1rem !important;
+          .services-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 60px;
           }
 
           .service-image-container {
             height: 200px;
           }
+
+          .service-content {
+            padding: 25px;
+          }
+
+          .service-title {
+            font-size: 1.3rem;
+          }
+
+          .service-description {
+            font-size: 0.9rem;
+          }
+
+          .services-cta {
+            padding: 50px 25px;
+            border-radius: 20px;
+          }
+
+          .cta-title {
+            font-size: 1.6rem;
+          }
+
+          .cta-text {
+            font-size: 1rem;
+          }
         }
 
-        /* Small Mobile */
+        /* Small Mobile Responsive */
         @media (max-width: 480px) {
-          .services-section-main {
-            padding: 50px 5px !important;
+          .services-section {
+            padding: 50px 10px;
           }
 
-          .main-title-services {
-            font-size: 1.6rem !important;
+          .services-main-title {
+            font-size: 1.6rem;
           }
 
-          .subtitle-services {
-            font-size: 0.9rem !important;
+          .services-subtitle {
+            font-size: 0.9rem;
             padding: 0 5px;
           }
 
-          .services-grid-main {
-            gap: 18px !important;
-            margin-bottom: 40px !important;
+          .services-badge {
+            padding: 8px 16px;
+          }
+
+          .services-badge-text {
+            font-size: 0.8rem;
+          }
+
+          .services-grid {
+            gap: 20px;
+            margin-bottom: 40px;
           }
 
           .service-image-container {
             height: 180px;
           }
 
-          .card-content-services {
-            padding: 18px !important;
+          .service-content {
+            padding: 20px;
           }
 
-          .service-title-main {
-            font-size: 1.1rem !important;
-            margin-bottom: 10px !important;
+          .service-title {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
           }
 
-          .service-description-main {
-            font-size: 0.85rem !important;
-            margin-bottom: 15px !important;
+          .service-description {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
           }
 
-          .feature-item-services {
-            font-size: 0.82rem !important;
-            padding: 6px 0 !important;
+          .feature-item {
+            font-size: 0.82rem;
+            padding: 6px 0;
           }
 
-          .check-icon-services {
-            width: 18px !important;
-            height: 18px !important;
-            font-size: 0.65rem !important;
+          .check-icon {
+            width: 18px;
+            height: 18px;
+            font-size: 0.65rem;
           }
 
-          .cta-section-main {
-            padding: 35px 15px !important;
-            border-radius: 15px !important;
+          .services-cta {
+            padding: 35px 15px;
+            border-radius: 15px;
           }
 
-          .cta-title-main {
-            font-size: 1.3rem !important;
-            margin-bottom: 12px !important;
+          .cta-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
           }
 
-          .cta-text-main {
-            font-size: 0.9rem !important;
-            margin-bottom: 20px !important;
+          .cta-text {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
           }
 
-          .cta-button-link {
+          .cta-button {
             padding: 13px 30px;
             font-size: 0.9rem;
             width: 100%;
             max-width: 280px;
           }
+
+          .services-header {
+            margin-bottom: 40px;
+          }
         }
 
-        /* Extra Small */
+        /* Extra Small Devices */
         @media (max-width: 375px) {
-          .services-section-main {
-            padding: 45px 3px !important;
+          .services-section {
+            padding: 45px 8px;
           }
 
-          .main-title-services {
-            font-size: 1.5rem !important;
+          .services-main-title {
+            font-size: 1.5rem;
           }
 
-          .subtitle-services {
-            font-size: 0.85rem !important;
+          .services-subtitle {
+            font-size: 0.85rem;
           }
 
           .service-image-container {
             height: 160px;
           }
 
-          .card-content-services {
-            padding: 15px !important;
+          .service-content {
+            padding: 15px;
           }
 
-          .service-title-main {
-            font-size: 1rem !important;
+          .service-title {
+            font-size: 1rem;
           }
 
-          .service-description-main {
-            font-size: 0.8rem !important;
+          .service-description {
+            font-size: 0.8rem;
           }
 
-          .cta-title-main {
-            font-size: 1.2rem !important;
+          .feature-item {
+            font-size: 0.78rem;
           }
 
-          .cta-text-main {
-            font-size: 0.85rem !important;
+          .cta-title {
+            font-size: 1.2rem;
           }
 
-          .cta-button-link {
+          .cta-text {
+            font-size: 0.85rem;
+          }
+
+          .cta-button {
             padding: 12px 25px;
             font-size: 0.85rem;
             max-width: 260px;
@@ -385,20 +560,22 @@ function Services() {
         }
       `}</style>
 
-      <section style={styles.servicesSection} id="services" className="services-section-main">
-        <div style={styles.container}>
+      <section className="services-section" id="services">
+        <div className="services-container">
           {/* Header */}
-          <div style={styles.headerSection}>
-            <div style={styles.badge}>
-              <span style={styles.badgeText}>What We Offer</span>
+          <div className="services-header">
+            <div className="services-badge">
+              <span className="services-badge-text">What We Offer</span>
             </div>
-            <h2 style={styles.mainTitle} className="main-title-services">OUR SERVICES</h2>
-            <div style={styles.divider}></div>
-            <p style={styles.subtitle} className="subtitle-services">Comprehensive Solutions for Your Digital Transformation</p>
+            <h2 className="services-main-title">OUR SERVICES</h2>
+            <div className="services-divider"></div>
+            <p className="services-subtitle">
+              Comprehensive Solutions for Your Digital Transformation
+            </p>
           </div>
 
           {/* Services Grid */}
-          <div style={styles.servicesGrid} className="services-grid-main">
+          <div className="services-grid">
             {services.map((service, index) => (
               <div key={index} className="service-card">
                 {/* Image Section */}
@@ -406,19 +583,19 @@ function Services() {
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="service-zoom-image"
+                    className="service-image"
                   />
-                  <div style={styles.imageOverlay}></div>
+                  <div className="service-overlay"></div>
                 </div>
                 
                 {/* Content Section */}
-                <div style={styles.cardContent} className="card-content-services">
-                  <h3 style={styles.serviceTitle} className="service-title-main">{service.title}</h3>
-                  <p style={styles.serviceDescription} className="service-description-main">{service.description}</p>
-                  <ul style={styles.featuresList}>
+                <div className="service-content">
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-description">{service.description}</p>
+                  <ul className="service-features">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} style={styles.featureItem} className="feature-item-services">
-                        <div style={styles.checkIcon} className="check-icon-services">✓</div>
+                      <li key={idx} className="feature-item">
+                        <div className="check-icon">✓</div>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -429,154 +606,19 @@ function Services() {
           </div>
 
           {/* CTA Section */}
-          <div style={styles.ctaSection} className="cta-section-main">
-            <h3 style={styles.ctaTitle} className="cta-title-main">Ready to Transform Your Business?</h3>
-            <p style={styles.ctaText} className="cta-text-main">
+          <div className="services-cta">
+            <h3 className="cta-title">Ready to Transform Your Business?</h3>
+            <p className="cta-text">
               Let's discuss how our services can help you achieve your goals
             </p>
-            <a href="#footer" className="cta-button-link">Get Started Today</a>
+            <a href="#footer" className="cta-button">
+              Get Started Today
+            </a>
           </div>
         </div>
       </section>
     </>
   );
 }
-
-const styles = {
-  servicesSection: {
-    padding: '100px 20px',
-    background: '#ffffff',
-    width: '100%',
-    maxWidth: '100vw',
-    overflowX: 'hidden',
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    width: '100%',
-  },
-  headerSection: {
-    textAlign: 'center',
-    marginBottom: '60px',
-  },
-  badge: {
-    display: 'inline-block',
-    padding: '10px 20px',
-    background: 'linear-gradient(135deg, rgba(0, 188, 212, 0.15) 0%, rgba(0, 188, 212, 0.05) 100%)',
-    border: '1px solid rgba(0, 188, 212, 0.3)',
-    borderRadius: '50px',
-    marginBottom: '20px',
-  },
-  badgeText: {
-    color: '#0097A7',
-    fontSize: '0.9rem',
-    fontWeight: '600',
-    letterSpacing: '1px',
-  },
-  mainTitle: {
-    fontSize: '2.5rem',
-    fontWeight: '800',
-    color: '#1a1a1a',
-    letterSpacing: '1px',
-    marginBottom: '15px',
-  },
-  divider: {
-    width: '80px',
-    height: '4px',
-    background: 'linear-gradient(90deg, #00BCD4, #0097A7)',
-    margin: '0 auto 20px',
-    borderRadius: '2px',
-  },
-  subtitle: {
-    fontSize: '1.1rem',
-    color: '#666',
-    fontWeight: '400',
-    maxWidth: '600px',
-    margin: '0 auto',
-    lineHeight: '1.6',
-  },
-  servicesGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '30px',
-    marginBottom: '80px',
-    width: '100%',
-  },
-  imageOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1) 100%)',
-    pointerEvents: 'none',
-  },
-  cardContent: {
-    padding: '30px',
-  },
-  serviceTitle: {
-    fontSize: '1.4rem',
-    fontWeight: '700',
-    color: '#1a1a1a',
-    marginBottom: '12px',
-    wordWrap: 'break-word',
-  },
-  serviceDescription: {
-    fontSize: '0.95rem',
-    lineHeight: '1.7',
-    color: '#666',
-    marginBottom: '20px',
-    wordWrap: 'break-word',
-  },
-  featuresList: {
-    listStyle: 'none',
-    padding: 0,
-    margin: '0 0 20px 0',
-  },
-  featureItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '10px',
-    padding: '8px 0',
-    fontSize: '0.9rem',
-    color: '#555',
-    borderBottom: '1px solid #f5f5f5',
-  },
-  checkIcon: {
-    width: '20px',
-    height: '20px',
-    borderRadius: '50%',
-    background: 'linear-gradient(135deg, #00BCD4 0%, #0097A7 100%)',
-    color: '#fff',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-    fontSize: '0.7rem',
-    fontWeight: '700',
-  },
-  ctaSection: {
-    textAlign: 'center',
-    padding: '60px 40px',
-    background: 'linear-gradient(135deg, #00BCD4 0%, #0097A7 100%)',
-    borderRadius: '25px',
-    boxShadow: '0 20px 60px rgba(0,188,212,0.3)',
-    width: '100%',
-  },
-  ctaTitle: {
-    fontSize: '2rem',
-    fontWeight: '700',
-    color: '#ffffff',
-    marginBottom: '15px',
-    wordWrap: 'break-word',
-  },
-  ctaText: {
-    fontSize: '1.1rem',
-    color: '#ffffff',
-    marginBottom: '30px',
-    opacity: 0.95,
-    wordWrap: 'break-word',
-  },
-};
 
 export default Services;
